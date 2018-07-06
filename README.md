@@ -21,8 +21,10 @@ Python 3
     ```
 4. Restore Python packages
     ```bash
-    (venv) pip install -r requirements.txt
+    (venv) pip install -r requirements.txt 
     ```
+5. Create a file *oauth2.key* on the same folder as the script and add the Riverbed access key to it.    
+    
 
 ### Running the test
 
