@@ -19,11 +19,6 @@ def _internal_request(host, url, data=None, headers=None):
     request_url = "{0}{1}".format(url_start, url)
     r = None
     if data is None:
-        # no data is a get request.
-        # verify is set to false so SSL errors don't cause problems
-        # allow_redirects is false because the NetProfiler REST API
-        # uses the location header in a redirect to pass back OAuth2
-        # key data.
         r = requests.get(request_url,
                          headers=headers,
                          verify=False,
