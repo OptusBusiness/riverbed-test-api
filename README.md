@@ -8,8 +8,6 @@ Python 3
 ### Environment setup
 
 1. Clone the project  
-   * HTTP: `git clone https://gitlab.alphawest.com.au/alex.bacchin/riverbed_api.git`  
-   * SSH: `git clone https://gitlab.alphawest.com.au/alex.bacchin/riverbed_api.git`  
 
 2. Create a new Python 3 virtual environment
     ```bash
