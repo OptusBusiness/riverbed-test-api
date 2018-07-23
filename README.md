@@ -28,6 +28,6 @@ Python 3
 
 Just execute the command below passing the hostname (or ip address) and device id
 ```bash
-(venv) python test.py <host> --device_id <device_id>
+(venv) python test.py <host> --device_id <device_id> --interval <seconds>
 ```
 
