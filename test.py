@@ -26,12 +26,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("host", help="hostname or ip address")
     parser.add_argument("--device_id", help="device_id for query criteria")
+    parser.add_argument("--interval", help="interval between start_time and end_time for "
+                                           "Riverbed REST API ")
     args = parser.parse_args()
     host = args.host
     device_id = args.device_id
+    interval = int(args.interval)
 
     datetime_criteria = {
-        "start_time": datetime_since_epoch(datetime.datetime.now() - datetime.timedelta(3)),
+        "start_time": datetime_since_epoch(datetime.datetime.now() - datetime.timedelta(
+            seconds=interval)),
         "end_time": datetime_since_epoch(datetime.datetime.now()),
     }
 
