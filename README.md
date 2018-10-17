@@ -26,8 +26,13 @@ Python 3
 
 ### Running the test
 
-Just execute the command below passing the hostname (or ip address) and device id
+Just execute the command below passing the hostname (or ip address) and device id of SteelHead
+Controller device
 ```bash
 (venv) python test.py <host> --device_id <device_id> --interval <seconds>
+```
+or for SteelHead CX/EX device: 
+```bash
+(venv) python test_steelhead.py <host> --device_id <device_id>
 ```
 
