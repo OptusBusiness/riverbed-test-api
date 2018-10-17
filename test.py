@@ -34,9 +34,9 @@ def main():
     interval = int(args.interval)
 
     datetime_criteria = {
-        "start_time": datetime_since_epoch(datetime.datetime.now() - datetime.timedelta(
+        "start_time": datetime_since_epoch(datetime.datetime.utcnow() - datetime.timedelta(
             seconds=interval)),
-        "end_time": datetime_since_epoch(datetime.datetime.now()),
+        "end_time": datetime_since_epoch(datetime.datetime.utcnow()),
     }
 
     multiple_devices_criteria = dict(datetime_criteria)
