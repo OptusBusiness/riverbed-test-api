@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Project related files
-/oauth2.key
-
+/*.key
+/Results*
 ### VisualStudioCode template
 .vscode/*
 ### macOS template

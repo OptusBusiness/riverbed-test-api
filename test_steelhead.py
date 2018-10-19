@@ -28,9 +28,13 @@ def main():
     parser.add_argument("--device_id", help="device_id of SteelHead device for query criteria")
     parser.add_argument("--interval", help="interval between start_time and end_time for "
                                            "Riverbed REST API ")
+    parser.add_argument("--keyfile", help='Filename with the OAUTH key')
     args = parser.parse_args()
     host = args.host
     device_id = args.device_id
+
+    if args.keyfile:
+        oauth2_request.set_request_keyfile(args.keyfile)
 
     print_request('/api/sh.appflow/2.0/networks')
     print_request('/api/sh.appflow/2.0/applications')

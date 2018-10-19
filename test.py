@@ -27,9 +27,10 @@ def main():
     parser.add_argument("host", help="hostname or ip address")
     parser.add_argument("--device_id", help="device_id for query criteria")
     parser.add_argument("--interval", help="interval between start_time and end_time for "
-                                           "Riverbed REST API ")
+                                           "Riverbed REST API ",default=300)
+    parser.add_argument("--keyfile",help='Filename with the OAUTH key')
     args = parser.parse_args()
-    host = args.host
+
     device_id = args.device_id
     interval = int(args.interval)
 
@@ -39,9 +40,11 @@ def main():
         "end_time": datetime_since_epoch(datetime.datetime.utcnow()),
     }
 
+    if args.keyfile:
+        oauth2_request.set_request_keyfile(args.keyfile)
+    host = args.host
     multiple_devices_criteria = dict(datetime_criteria)
     multiple_devices_criteria['devices'] = [device_id]
-
     print_request('/api/cmc.topology/1.2/bandwidth_usage')
     print_request('/api/cmc.stats/1.0/disk_load', json.dumps(datetime_criteria))
 

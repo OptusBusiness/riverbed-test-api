@@ -8,6 +8,7 @@ import urllib3
 
 urllib3.disable_warnings()
 
+key_filename = 'oauth2.key'
 
 def encode(s):
     return base64.urlsafe_b64encode(s.encode('utf-8'))
@@ -33,11 +34,10 @@ def _internal_request(host, url, data=None, headers=None):
 
 
 def get_access_token(host):
-    access_key_file = "oauth2.key"
 
     # The OAuth Token URL
     token_url = '/api/common/1.0/oauth/token'
-    with open(access_key_file, 'r') as f:
+    with open(key_filename, 'r') as f:
         file_text = f.readline()
         # strip the text just in case some white space got in there.
         oauth_code = file_text.strip()
@@ -76,6 +76,9 @@ def get_authentication_header(host):
     return {'Authorization': 'Bearer {0}'.format(access_token),
             'Accept': 'application/json'}
 
+def set_request_keyfile(filename):
+    global key_filename
+    key_filename = filename
 
 def do_auth_get_request(host, url):
     return _internal_request(host, url, headers=get_authentication_header(host))
